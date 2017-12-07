@@ -7,7 +7,7 @@
                 <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" />
 
                 
-                <Label Text="Crypto Prices" Font="Large" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                <Label  BackgroundColor="Navy" TextColor="White" Text="Crypto Prices" HorizontalTextAlignment="Center" FontAttributes = "Bold"  Font="Large" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
                 
                 <Label Text="Bitcoin" Font="Large" FontAttributes = "Bold" x:Name="Bitcoin" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
 
