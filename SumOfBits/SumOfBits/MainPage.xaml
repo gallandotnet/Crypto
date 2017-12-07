@@ -1,13 +1,40 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:SumOfBits"
-             x:Class="SumOfBits.MainPage">
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SumOfBits" x:Class="SumOfBits.MainPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout.Children>
+     
+                <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" />
+
+                
+                <Label Text="Crypto Prices" Font="Large" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                
+                <Label Text="Bitcoin" Font="Large" FontAttributes = "Bold" x:Name="Bitcoin" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+
+                <Label Text="" Font="Large" FontAttributes = "Bold" TextColor="Blue"  x:Name="BitcoinLabel" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+                <Label Text="" FontAttributes = "Bold" x:Name="BitcoinLowestDayLabel" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+                <Label Text="" FontAttributes = "Bold" x:Name="UpOrDownBitCoin" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+
+                 <Label Text="_____________________________" Font="Large" FontAttributes = "Bold" x:Name="line" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+
+
+                <Label Text="Ethereum" Font="Large" FontAttributes = "Bold" x:Name="Eth" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+                <Label Text="" Font="Large" FontAttributes = "Bold" TextColor="Blue"  x:Name="EthereumLabel" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                <Label Text="" FontAttributes = "Bold" x:Name="UpOrDownEtheruem" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+
+
+                 <Label Text=""  x:Name="EthereumLowestDayLabel" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+                <Button Text="Refresh" x:Name="Refresh" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                
+            </StackLayout.Children>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
