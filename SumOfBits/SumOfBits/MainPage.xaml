@@ -10,19 +10,19 @@
                 <Label Text="" x:Name="BitcoinHighestDayLabel" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="Green"/>
                 <Label Text=""  x:Name="BitcoinLowestDayLabel" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="Red" />
                 <Label Text="" FontAttributes="Bold" x:Name="UpOrDownBitCoin" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-                <Label Text="_____________________________" Font="Large" FontAttributes="Bold" x:Name="line1" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                <Label Text="_____________________________"  FontAttributes="Bold" x:Name="line1" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
                 <Label Text="Bitcoin Cash" Font="Large" FontAttributes="Bold" x:Name="BitcoinCash" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
                 <Label Text="" Font="Large" FontAttributes="Bold" TextColor="Blue" x:Name="BitcoinCashLabel" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
                 <Label Text="" FontAttributes="Bold" x:Name="UpOrDownBitcoinCash" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
                 <Label Text="" x:Name="BitcoinCashHighestDayLabel" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="Green"/>
                 <Label Text="" x:Name="BitcoinCashLowestDayLabel" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="Red"/>
-                <Label Text="_____________________________" Font="Large" FontAttributes="Bold" x:Name="line" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                <Label Text="_____________________________"   FontAttributes="Bold" x:Name="line" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
                 <Label Text="Ethereum" Font="Large" FontAttributes="Bold" x:Name="Eth" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
                 <Label Text="" Font="Large" FontAttributes="Bold" TextColor="Blue" x:Name="EthereumLabel" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
                 <Label Text="" FontAttributes="Bold" x:Name="UpOrDownEtheruem" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
                 <Label Text="" x:Name="EthereumHighestDayLabel" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="Green"/>
                 <Label Text="" x:Name="EthereumLowestDayLabel" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="Red"/>
-                <Button Text="Refresh" x:Name="Refresh" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                <Button Text="Refresh"   x:Name="Refresh" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"  FontAttributes="Bold"/>
             </StackLayout.Children>
         </StackLayout>
     </ContentPage.Content>
