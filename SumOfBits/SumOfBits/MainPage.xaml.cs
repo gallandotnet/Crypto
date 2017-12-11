@@ -25,7 +25,9 @@ namespace SumOfBits
                 try
                 {
                     GetBitCoinPrices();
+                    GetBitcoinCashPrices();
                     GetEtheruemPrices();
+
                 }
                 catch (Exception ex)
                 {
@@ -37,6 +39,7 @@ namespace SumOfBits
             try
             {
                 GetBitCoinPrices();
+                GetBitcoinCashPrices();
                 GetEtheruemPrices();
             }
             catch (Exception ex)
@@ -52,7 +55,7 @@ namespace SumOfBits
             return (amt / startPrice) * 100 ;
 
         }
-        private void GetEtheruemPrices()
+        void GetEtheruemPrices()
         {
             string url = "https://api.independentreserve.com/Public/GetMarketSummary?primaryCurrencyCode=eth&secondaryCurrencyCode=aud";
             IsBusy = true;
@@ -83,9 +86,50 @@ namespace SumOfBits
 
                 }
 
-                EthereumLabel.Text = string.Format("{0:c}",prices.LastPrice);
+                EthereumLabel.Text = string.Format("{0:c}", prices.LastPrice);
                 EthereumLowestDayLabel.Text = string.Format("{0:c}", prices.DayLowestPrice);
-                UpOrDownEtheruem.Text = "%" + CalcPercentage(prices.DayLowestPrice,prices.LastPrice).ToString("0.##");
+                EthereumHighestDayLabel.Text = string.Format("{0:c}", prices.DayHighestPrice);
+                UpOrDownEtheruem.Text = "%" + CalcPercentage(prices.DayLowestPrice, prices.LastPrice).ToString("0.##");
+
+            }
+        }
+
+
+        private void GetBitcoinCashPrices()
+        {
+            string url = "https://api.independentreserve.com/Public/GetMarketSummary?primaryCurrencyCode=bch&secondaryCurrencyCode=aud";
+            IsBusy = true;
+            PriceInfo prices = new PriceInfo();
+            // Create an HTTP web request using the URL:
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri(url));
+            request.ContentType = "application/json";
+            request.Method = "GET";
+
+            // Send the request to the server and wait for the response:
+            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            {
+                if (response.StatusCode != HttpStatusCode.OK)
+                    EthereumLabel.Text = string.Format("Error fetching data. Server returned status code: {0}", response.StatusCode);
+                using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                {
+                    var content = reader.ReadToEnd();
+                    if (string.IsNullOrWhiteSpace(content))
+                    {
+                        //  Console.Out.WriteLine("Response contained empty body...");
+                    }
+                    else
+                    {
+
+                        prices = JsonConvert.DeserializeObject<PriceInfo>(content);
+                        // Console.Out.WriteLine("Response Body: \r\n {0}", content);
+                    }
+
+                }
+
+                BitcoinCashLabel.Text = string.Format("{0:c}", prices.LastPrice);
+                BitcoinCashLowestDayLabel.Text = string.Format("{0:c}", prices.DayLowestPrice);
+                BitcoinCashHighestDayLabel.Text = string.Format("{0:c}", prices.DayHighestPrice);
+                UpOrDownBitcoinCash.Text = "%" + CalcPercentage(prices.DayLowestPrice, prices.LastPrice).ToString("0.##");
 
             }
         }
@@ -123,6 +167,7 @@ namespace SumOfBits
                
                 BitcoinLabel.Text = string.Format("{0:c}", prices.LastPrice);
                 BitcoinLowestDayLabel.Text = string.Format("{0:c}", prices.DayLowestPrice);
+                BitcoinHighestDayLabel.Text = string.Format("{0:c}", prices.DayHighestPrice);
                 UpOrDownBitCoin.Text = "%" + CalcPercentage(prices.DayLowestPrice, prices.LastPrice).ToString("0.##");
                 IsBusy = false;
             }
